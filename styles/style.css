@@ -3,3 +3,16 @@
   font-optical-sizing: auto;
   font-style: normal;
 }
+
+input[type='radio']:focus {
+  background-color: #15803d;
+  color: white;
+}
+
+.tab {
+  text-align: left;
+}
+
+.btn {
+  text-align: left !important;
+}

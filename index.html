@@ -32,11 +32,11 @@
   </head>
   <body class="w-full bg-[#f0fdf4] inter-font m-0">
     <nav class="m-0">
-      <div class="navbar bg-[#15803D] text-white md:px-[6%] items-center">
+      <div class="navbar fixed z-10 bg-[#15803D] text-white md:px-[6%] items-center">
         <div class="navbar-start">
           <!-- for mobile: itm dropdown -->
           <div class="dropdown">
-            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+            <div tabindex="0" role="button" class="btn btn-ghost md:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
@@ -65,7 +65,7 @@
             <i class="fa-solid fa-tree" style="color: #ffffff"></i> Green Earth
           </a>
         </div>
-        <div class="navbar-center hidden lg:flex">
+        <div class="navbar-center hidden md:flex">
           <ul class="menu menu-horizontal px-1 text-xl">
             <li><a>About</a></li>
             <li><a>Gallery</a></li>
@@ -80,6 +80,7 @@
         </div>
       </div>
     </nav>
+    <div class="h-16"></div>
     <header class="mb-20">
       <div class="hero flex justify-between items-end bg-[#CFF0DC] h-[450px]">
         <div class="absolute opacity-30 md:opacity-100 md:static md:flex">
@@ -106,17 +107,49 @@
     <main class="flex-col space-y-10 px-[6%] text-center">
       <h1 class="text-center text-3xl font-bold">Choose Your Trees</h1>
       <!-- Trees Category and Selection part -->
-      <section class="flex flex-col md:flex-row md:justify-between md:items-start">
+      <section class="flex flex-col md:space-x-5 md:flex-row md:justify-between md:items-start">
         <!-- Cart : Mobile -->
         <div class="md:hidden">Cart Mobile</div>
         <!-- Categories -->
-        <div class="hidden md:flex md:flex-col">Categories</div>
-        <!-- Categories Mobile -->
-        <div class="md:hidden">Catagories Mobile</div>
+        <div class="hidden md:flex md:flex-1 md:flex-col md:w-full md:items-start">
+          <span class="text-2xl font-bold py-2">Categories</span>
+          <!-- Tree category tabs -->
+          <div class="flex-col w-full bg-transparent text-left">
+            <a
+              class="flex justify-start w-full btn shadow-none border-0 bg-transparent font-normal rounded-lg hover:bg-[#15803D25]"
+              >All Trees</a
+            >
+            <a
+              class="flex justify-start w-full btn shadow-none border-0 bg-transparent font-normal rounded-lg hover:bg-[#15803D25]"
+              >Fruit Trees</a
+            >
+            <a
+              class="flex justify-start w-full btn shadow-none border-0 bg-transparent font-normal rounded-lg hover:bg-[#15803D25]"
+              >Flowering Trees</a
+            >
+          </div>
+        </div>
         <!-- Cards -->
-        <div>Card</div>
+        <div class="flex-4 grid grid-cols-1 md:grid-cols-3 gap-5">
+          <!-- Each card -->
+          <div class="bg-base-100 p-5 space-y-3">
+            <img class="w-full" src="./assets/text-bg.jpg" alt="Shoes" />
+            <div class="text-left space-y-3">
+              <h2 class="card-title">Mango Tree</h2>
+              <p>
+                A fast-growing tropical tree that produces delicious, juicy mangoes during summer.
+                Its dense green
+              </p>
+              <button
+                class="btn bg-[#15803D] w-full text-white text-base font-light rounded-3xl py-5"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
         <!-- Cart : desktop -->
-        <div class="hidden md:flex md:flex-col">Your Cart</div>
+        <div class="flex md:flex-1 flex-col">Your Cart</div>
       </section>
       <section></section>
     </main>
