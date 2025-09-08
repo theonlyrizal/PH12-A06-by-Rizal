@@ -82,6 +82,7 @@
     </nav>
     <div class="h-16"></div>
     <header class="mb-20">
+      <!-- Hero -->
       <div class="hero flex justify-between items-end bg-[#CFF0DC] h-[450px]">
         <div class="absolute opacity-30 md:opacity-100 md:static md:flex">
           <img src="./assets/hero-leaf1.png" alt="" />
@@ -104,11 +105,11 @@
       </div>
     </header>
 
-    <main class="flex flex-col space-y-10 px-[6%] text-center">
-      <h1 class="text-center text-3xl font-bold">Choose Your Trees</h1>
+    <main class="flex flex-col space-y-10 text-center">
+      <h1 class="text-center text-4xl font-bold">Choose Your Trees</h1>
       <!-- Trees Category and Selection part -->
       <section
-        class="flex flex-col space-y-5 md:space-x-5 md:flex-row md:justify-between md:items-start"
+        class="flex flex-col px-[6%] space-y-5 md:space-x-5 md:flex-row md:justify-between md:items-start"
       >
         <!-- Categories -->
         <div class="md:flex md:flex-1 md:flex-col md:w-full md:items-start">
@@ -173,11 +174,72 @@
         </div>
       </section>
       <!-- About -->
-      <section class="flex flex-col space-x-5">
-        <h1 class="text-center text-3xl font-bold">About The Champaign</h1>
-        <div>
+      <section class="flex flex-col px-[6%] items-center space-y-10">
+        <h1 class="text-center text-4xl font-bold pt-20">About The Champaign</h1>
+        <div class="flex flex-col md:flex-row justify-center items-center md:w-4/6">
           <img src="./assets/about.png" alt="" />
-          <p></p>
+          <div class="text-left text-[#1F293790]">
+            <p class="p-5">
+              Green Earth is a global tree plantation initiative dedicated to fighting climate
+              change. Since our start, we’ve planted over 500,000 trees worldwide. By joining our
+              campaign, you help restore forests, create habitats for wildlife, and combat global
+              warming.
+            </p>
+            <ul class="px-10 list-disc">
+              <li>Restoration of natural habitats</li>
+              <li>Improvement of air quality</li>
+              <li>Support for local communities</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <!-- Impact -->
+      <section class="bg-[#CFF0DC] h-auto md:h-[400px]">
+        <div class="flex flex-col px-[6%] py-20 space-y-5">
+          <h1 class="text-center text-4xl font-bold">Our Impact</h1>
+          <div class="grid grid-cols-1 gap-5 md:gap-10 md:grid-cols-3">
+            <div
+              class="flex flex-col justify-center items-center bg-white h-25 md:h-35 rounded-xl shadow-sm"
+            >
+              <h1 class="text-4xl font-bold text-[#15803D]">500K+</h1>
+              <span class="text-base text-[#1F293790]">Trees Planted</span>
+            </div>
+            <div
+              class="flex flex-col justify-center items-center bg-white h-25 md:h-35 rounded-xl shadow-sm"
+            >
+              <h1 class="text-4xl font-bold text-[#15803D]">500K+</h1>
+              <span class="text-base text-[#1F293790]">Trees Planted</span>
+            </div>
+            <div
+              class="flex flex-col justify-center items-center bg-white h-25 md:h-35 rounded-xl shadow-sm"
+            >
+              <h1 class="text-4xl font-bold text-[#15803D]">500K+</h1>
+              <span class="text-base text-[#1F293790]">Trees Planted</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Plant a tree form -->
+      <section class="bg-[#166534] flex-col py-20">
+        <div class="px-[6%]">
+          <h1 class="text-center text-white text-4xl font-bold">Plant a Tree Today</h1>
+          <div>
+            <form class="flex-col w-full md:w-2/5 p-10 bg-[#15803D]">
+              <input type="text" placeholder="Type here" class="input block" />
+              <input type="text" placeholder="Type here" class="input block" />
+              <div class="dropdown block">
+                <div tabindex="0" role="button" class="btn m-1">Click</div>
+                <ul
+                  tabindex="0"
+                  class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm"
+                >
+                  <li><a>Item 1</a></li>
+                  <li><a>Item 2</a></li>
+                </ul>
+              </div>
+              <button>Donate Now</button>
+            </form>
+          </div>
         </div>
       </section>
     </main>
