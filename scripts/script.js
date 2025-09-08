@@ -41,7 +41,7 @@ const showAllPlants = (plantElement) => {
   <div id="plant-card-${plantElement.id}" class="bg-base-100 p-4 space-y-3 rounded-2xl">
             <img class="w-full h-[300px] object-cover rounded-lg" src=${plantElement.image} alt=${plantElement.name} />
             <div class="text-left space-y-3">
-              <h2 id="plant-name-${plantElement.id}" class="card-title">${plantElement.name}</h2>
+              <h2 onClick="plantModalLoad(${plantElement.id}); plant_modal.showModal()" id="plant-name-${plantElement.id}" class="card-title hover:cursor-pointer">${plantElement.name}</h2>
               <p>
                 ${plantElement.description}
               </p>
@@ -79,12 +79,47 @@ const showCategoryPlants = async (id) => {
 };
 
 const tabActive = (tabID) => {
-  console.log(`Hola`);
   const allTabs = document.querySelectorAll('a.is-tab');
   allTabs.forEach((tab) => {
     tab.classList.remove('selected');
   });
   allTabs[tabID].classList.add('selected');
+};
+
+// Plant info fetch and Modal modification
+const plantModalLoad = async (plantID) => {
+  const plantURL = `https://openapi.programming-hero.com/api/plant/${plantID}`;
+  const plantJSON = await fetch(plantURL);
+  const plantObject = await plantJSON.json();
+  const plantInfo = plantObject.plants;
+
+  const plantModal = document.getElementById('plant_modal');
+  plantModal.innerHTML = '';
+  plantModal.innerHTML = `
+  <div class="modal-box">
+    <div class="bg-base-100 p-4 space-y-3 rounded-2xl">
+      <img
+        class="w-full h-[300px] object-cover rounded-lg"
+        src="${plantInfo.image}"
+        alt="${plantInfo.name}"
+      />
+      <div class="text-left space-y-3">
+        <h2 class="card-title hover:cursor-pointer">${plantInfo.name}</h2>
+        <p>${plantInfo.description}</p>
+
+        <div class="flex justify-between">
+          <span class="badge badge-soft text-[#15803D] bg-[#DCFCE7] border-0 rounded-2xl"
+            >${plantInfo.category}</span
+          >
+          <p class="font-bold">৳<span>${plantInfo.price}</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button>close</button>
+  </form>
+  `;
 };
 
 loadCategories();

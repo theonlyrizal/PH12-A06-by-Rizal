@@ -61,7 +61,10 @@
               <li><a href="#plant-a-tree">Plant A Tree</a></li>
             </ul>
           </div>
-          <a class="btn bg-[#15803D] text-xl md:text-2xl text-white border-0 shadow-none">
+          <a
+            href="#top"
+            class="btn bg-[#15803D] text-xl md:text-2xl text-white border-0 shadow-none"
+          >
             <i class="fa-solid fa-tree" style="color: #ffffff"></i> Green Earth
           </a>
         </div>
@@ -81,7 +84,7 @@
         </div>
       </div>
     </nav>
-    <div class="h-16"></div>
+    <div id="top" class="h-16"></div>
     <header class="mb-20">
       <!-- Hero -->
       <div class="hero flex justify-between items-end bg-[#CFF0DC] h-[450px]">
@@ -122,7 +125,9 @@
             id="categories-list"
             class="flex justify-center flex-wrap gap-2 md:gap-0 md:flex md:flex-col w-full bg-transparent text-left"
           >
-            <a onclick="loadPlants()" id="catagory-tab-1"
+            <a
+              onclick="loadPlants()"
+              id="catagory-tab-1"
               class="is-tab flex justify-center text-xs md:text-base border-1 md:justify-start w-full btn shadow-none md:border-0 bg-transparent font-normal text-center rounded-xl hover:bg-[#15803D25] selected"
               >All Trees</a
             >
@@ -273,15 +278,7 @@
 
     <!-- You can open the modal using ID.showModal() method -->
     <!-- <button class="btn" onclick="my_modal_3.showModal()">open modal</button> -->
-    <dialog id="my_modal_3" class="modal">
-      <div class="modal-box">
-        <form method="dialog">
-          <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-        </form>
-        <h3 class="text-lg font-bold">Hello!</h3>
-        <p class="py-4">Press ESC key or click on ✕ button to close</p>
-      </div>
-    </dialog>
+    <dialog id="plant_modal" class="modal"></dialog>
 
     <!-- Script connect -->
     <script src="./scripts/script.js"></script>
