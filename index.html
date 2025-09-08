@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -56,9 +56,9 @@
               tabindex="0"
               class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-black"
             >
-              <li><a>About</a></li>
-              <li><a>Gallery</a></li>
-              <li><a>Plant A Tree</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="cards">Gallery</a></li>
+              <li><a href="#plant-a-tree">Plant A Tree</a></li>
             </ul>
           </div>
           <a class="btn bg-[#15803D] text-xl md:text-2xl text-white border-0 shadow-none">
@@ -67,13 +67,14 @@
         </div>
         <div class="navbar-center hidden md:flex">
           <ul class="menu menu-horizontal px-1 text-xl">
-            <li><a>About</a></li>
-            <li><a>Gallery</a></li>
-            <li><a>Plant A Tree</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#cards">Gallery</a></li>
+            <li><a href="#plant-a-tree">Plant A Tree</a></li>
           </ul>
         </div>
         <div class="navbar-end">
           <a
+            href="#plant-a-tree"
             class="btn bg-[#FACC15] shadow-none border-0 text-[#15803D] rounded-[3rem] hover:bg-[#c79f00]"
             >Plant a Tree</a
           >
@@ -94,11 +95,13 @@
               Join our mission to plant 1 million trees and make the Earth greener for future
               generations.
             </p>
-            <button
-              class="btn bg-[#FACC15] shadow-none border-0 text-[#15803D] rounded-[3rem] hover:bg-[#c79f00]"
+            <a href="#plant-a-tree"
+              ><button
+                class="btn bg-[#FACC15] shadow-none border-0 text-[#15803D] rounded-[3rem] hover:bg-[#c79f00]"
+              >
+                Get Involved
+              </button></a
             >
-              Get Involved
-            </button>
           </div>
         </div>
         <div class="hidden md:flex"><img src="./assets/hero-leaf2.png" alt="" /></div>
@@ -125,7 +128,7 @@
           </div>
         </div>
         <!-- Cards -->
-        <div class="flex-4 grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div id="cards" class="flex-4 grid grid-cols-1 md:grid-cols-3 gap-5">
           <!-- Each card -->
           <div class="bg-base-100 p-4 space-y-3 rounded-2xl">
             <img class="w-full rounded-lg" src="./assets/text-bg.jpg" alt="Shoes" />
@@ -174,7 +177,7 @@
         </div>
       </section>
       <!-- About -->
-      <section class="flex flex-col px-[6%] items-center space-y-10 mb-20">
+      <section id="about" class="flex flex-col px-[6%] items-center space-y-10 mb-20">
         <h1 class="text-center text-4xl font-bold pt-20">About The Champaign</h1>
         <div class="flex flex-col md:flex-row justify-center items-center md:w-4/6">
           <img class="rounded-2xl" src="./assets/about.png" alt="" />
@@ -224,7 +227,7 @@
         <div class="px-[6%]">
           <h1 class="text-center text-white my-10 text-4xl font-bold">Plant a Tree Today</h1>
           <div class="flex justify-center">
-            <div class="flex-col w-full md:w-2/5 p-10 rounded-2xl bg-[#15803D]">
+            <div id="plant-a-tree" class="flex-col w-full md:w-2/5 p-10 rounded-2xl bg-[#15803D]">
               <input
                 type="text"
                 placeholder="Your Name"
