@@ -14,8 +14,8 @@ const loadCategories = async () => {
 const showCategories = (catagoryElement) => {
   const categoriesList = document.getElementById('categories-list');
   categoriesList.innerHTML += `
-    <a id="catagory-tab-${catagoryElement.id}"
-              class="flex justify-center text-xs md:text-base border-1 md:justify-start md:w-full btn shadow-none md:border-0 bg-transparent font-normal text-center rounded-xl hover:bg-[#15803D25]"
+    <a tabid=${catagoryElement.id} id="catagory-tab-${catagoryElement.id}"
+              class="is-tab flex justify-center text-xs md:text-base border-1 md:justify-start md:w-full btn shadow-none md:border-0 bg-transparent font-normal text-center rounded-xl hover:bg-[#15803D25]"
               >${catagoryElement.category_name}</a
             >
     `;
@@ -27,20 +27,21 @@ const loadPlants = async () => {
   const allPlantsJSON = await fetch(allPlantsURL);
   const allPlantsObject = await allPlantsJSON.json();
   const allPlantsArray = allPlantsObject.plants;
-  allPlantsArray.forEach((element) => {
-    console.log('DEBUG: showAllPlants called');
-    showAllPlants(element);
+  allPlantsArray.forEach((plant) => {
+    // console.log('DEBUG: showAllPlants called');
+    showAllPlants(plant);
   });
 };
 
+// Showing all trees at first
 const showAllPlants = (plantElement) => {
   const cardsList = document.getElementById('cards-list');
-  console.log('DEBUG: showAllPlants initiated');
+  // console.log('DEBUG: showAllPlants initiated');
   cardsList.innerHTML += `
   <div id="plant-card-${plantElement.id}" class="bg-base-100 p-4 space-y-3 rounded-2xl">
-            <img class="w-full h-[350px] object-cover rounded-lg" src=${plantElement.image} alt=${plantElement.name} />
+            <img class="w-full h-[300px] object-cover rounded-lg" src=${plantElement.image} alt=${plantElement.name} />
             <div class="text-left space-y-3">
-              <h2 class="card-title">${plantElement.name}</h2>
+              <h2 id="plant-name-${plantElement.id}" class="card-title">${plantElement.name}</h2>
               <p>
                 ${plantElement.description}
               </p>
@@ -61,5 +62,37 @@ const showAllPlants = (plantElement) => {
     `;
 };
 
+// Show plants of category upon Clicking
+const showCategoryPlants = async (id) => {
+  const categoryURL = `https://openapi.programming-hero.com/api/category/${id}`;
+  const plantCategoryJSON = await fetch(categoryURL);
+  const plantCategoryObject = await plantCategoryJSON.json();
+  const plantCategoryArray = plantCategoryObject.plants;
+  // console.log(plantCategoryArray);
+
+  const cardsList = document.getElementById('cards-list');
+  cardsList.innerHTML = '';
+
+  plantCategoryArray.forEach((plant) => {
+    showAllPlants(plant);
+  });
+};
+
+const tabActive = (tabID) => {
+  console.log(`Hola`);
+  const allTabs = document.querySelectorAll('a.is-tab');
+  allTabs.forEach((tab) => {
+    tab.classList.remove('selected');
+  });
+  allTabs[tabID].classList.add('selected');
+};
+
 loadCategories();
 loadPlants();
+
+// Event Listener for all childs of Category List
+document.getElementById('categories-list').addEventListener('click', (e) => {
+  const tabID = Number(e.target.getAttribute('tabid'));
+  tabActive(tabID);
+  showCategoryPlants(tabID);
+});

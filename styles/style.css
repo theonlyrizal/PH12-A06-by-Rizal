@@ -16,3 +16,8 @@ input[type='radio']:focus {
 .btn {
   text-align: left !important;
 }
+
+.selected{
+  background: #15803D;
+  color: white;
+}
