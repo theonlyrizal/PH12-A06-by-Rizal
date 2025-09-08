@@ -44,20 +44,18 @@ const showAllPlants = (plantElement) => {
               <p>
                 ${plantElement.description}
               </p>
-              <div class="flex-col justify-end items-end">
-                <div class="flex justify-between">
-                  <span class="badge badge-soft text-[#15803D] bg-[#DCFCE7] border-0 rounded-2xl"
-                    >${plantElement.category}</span
-                  >
-                 <p class="font-bold">৳<span>${plantElement.price}</span></p>
-               </div>
-               <button
-                 class="btn bg-[#15803D] w-full text-white text-base font-light rounded-3xl py-5"
-                >
-                  Add to Cart
-                </button>
-              </div>
               
+              <div class="flex justify-between">
+                <span class="badge badge-soft text-[#15803D] bg-[#DCFCE7] border-0 rounded-2xl"
+                  >${plantElement.category}</span
+                >
+                <p class="font-bold">৳<span>${plantElement.price}</span></p>
+              </div>
+              <button
+                class="btn bg-[#15803D] w-full text-white text-base font-light rounded-3xl py-5"
+              >
+                Add to Cart
+              </button>
             </div>
           </div>
     `;
