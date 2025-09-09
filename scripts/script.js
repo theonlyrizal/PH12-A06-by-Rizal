@@ -2,12 +2,18 @@ let allPlantsArray;
 
 // Spinner helpers add and remove
 const showSpinner = () => {
-  const s = document.getElementById('loading-spinner');
-  if (s) s.classList.remove('hidden');
+  const spinnerElem = document.getElementById('loading-spinner');
+  if (spinnerElem) {
+    spinnerElem.classList.remove('hidden');
+    spinnerElem.classList.add('flex');
+  }
 };
 const hideSpinner = () => {
-  const s = document.getElementById('loading-spinner');
-  if (s) s.classList.add('hidden');
+  const spinnerElem = document.getElementById('loading-spinner');
+  if (spinnerElem) {
+    spinnerElem.classList.remove('flex');
+    spinnerElem.classList.add('hidden');
+  }
 };
 
 // Fetching categories JSON
