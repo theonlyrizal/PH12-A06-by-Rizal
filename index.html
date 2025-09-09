@@ -57,7 +57,7 @@
               class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-black"
             >
               <li><a href="#about">About</a></li>
-              <li><a href="cards">Gallery</a></li>
+              <li><a href="#cards-list">Gallery</a></li>
               <li><a href="#plant-a-tree">Plant A Tree</a></li>
             </ul>
           </div>
@@ -161,23 +161,25 @@
         <!-- Cart -->
         <div class="flex md:flex-1 flex-col bg-white text-left p-4 rounded-2xl">
           <span class="text-2xl font-bold py-2">Your Cart</span>
-          <!-- Cart items -->
-          <!-- each Cart Item -->
-          <!-- <div class="flex justify-between items-center bg-[#f0fdf4] p-4 mb-4 rounded-lg">
-            <div>
-              <p class="text-sm font-bold">Mangoe Tree</p>
-              <p class="text-gray-400">৳<span>$$$</span> x <span>1</span></p>
-            </div>
-            <div class="flex justify-center items-center h-7 w-7 hover:cursor-pointer rounded-md">
-              <i class="fa-solid fa-xmark fa-sm" style="color: #a8a8a8"></i>
-            </div>
-          </div> -->
+          <!-- Cart items container -->
+          <div id="cart-container">
+            <!-- each Cart Item -->
+            <!-- <div class="flex justify-between items-center bg-[#f0fdf4] p-4 mb-4 rounded-lg">
+              <div>
+                <p class="text-sm font-bold">Mangoe Tree</p>
+                <p class="text-gray-400">৳<span>$$$</span> x <span>1</span></p>
+              </div>
+              <div class="flex justify-center items-center h-7 w-7 hover:cursor-pointer rounded-md">
+                <i class="fa-solid fa-xmark fa-sm" style="color: #a8a8a8"></i>
+              </div>
+            </div> -->
+          </div>
 
           <hr class="border-t-2 border-gray-300 rounded mb-4" />
           <!-- Total amount -->
           <div class="flex justify-between">
             <p>Total:</p>
-            <p>৳<span>00</span></p>
+            <p>৳<span id="total-amount">0</span></p>
           </div>
         </div>
       </section>
