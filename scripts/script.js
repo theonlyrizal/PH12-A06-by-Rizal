@@ -1,15 +1,31 @@
 let allPlantsArray;
 
+// Spinner helpers add and remove
+const showSpinner = () => {
+  const s = document.getElementById('loading-spinner');
+  if (s) s.classList.remove('hidden');
+};
+const hideSpinner = () => {
+  const s = document.getElementById('loading-spinner');
+  if (s) s.classList.add('hidden');
+};
+
 // Fetching categories JSON
 const loadCategories = async () => {
-  const categoriesUrl = 'https://openapi.programming-hero.com/api/categories';
-  const categoriesJSON = await fetch(categoriesUrl);
-  const categoriesObject = await categoriesJSON.json();
-  const categoriesArray = categoriesObject.categories;
-
-  categoriesArray.forEach((element) => {
-    showCategories(element);
-  });
+  try {
+    showSpinner();
+    const categoriesUrl = 'https://openapi.programming-hero.com/api/categories';
+    const categoriesJSON = await fetch(categoriesUrl);
+    const categoriesObject = await categoriesJSON.json();
+    const categoriesArray = categoriesObject.categories;
+    categoriesArray.forEach((element) => {
+      showCategories(element);
+    });
+  } catch (err) {
+    console.error(err);
+  } finally {
+    hideSpinner();
+  }
 };
 
 // Showing the fetches categories
@@ -25,14 +41,21 @@ const showCategories = (catagoryElement) => {
 
 // Fetching All Tree info
 const loadPlants = async () => {
-  const allPlantsURL = 'https://openapi.programming-hero.com/api/plants';
-  const allPlantsJSON = await fetch(allPlantsURL);
-  const allPlantsObject = await allPlantsJSON.json();
-  allPlantsArray = allPlantsObject.plants;
-  allPlantsArray.forEach((plant) => {
-    // console.log('DEBUG: showAllPlants called');
-    showAllPlants(plant);
-  });
+  try {
+    showSpinner();
+    const allPlantsURL = 'https://openapi.programming-hero.com/api/plants';
+    const allPlantsJSON = await fetch(allPlantsURL);
+    const allPlantsObject = await allPlantsJSON.json();
+    allPlantsArray = allPlantsObject.plants;
+    allPlantsArray.forEach((plant) => {
+      // console.log('DEBUG: showAllPlants called');
+      showAllPlants(plant);
+    });
+  } catch (err) {
+    console.error(err);
+  } finally {
+    hideSpinner();
+  }
 };
 
 // Showing all trees at first
@@ -94,14 +117,16 @@ const tabActive = (tabID) => {
 
 // Plant info fetch and Modal modification
 const plantModalLoad = async (plantID) => {
-  const plantURL = `https://openapi.programming-hero.com/api/plant/${plantID}`;
-  const plantJSON = await fetch(plantURL);
-  const plantObject = await plantJSON.json();
-  const plantInfo = plantObject.plants;
+  try {
+    showSpinner();
+    const plantURL = `https://openapi.programming-hero.com/api/plant/${plantID}`;
+    const plantJSON = await fetch(plantURL);
+    const plantObject = await plantJSON.json();
+    const plantInfo = plantObject.plants;
 
-  const plantModal = document.getElementById('plant_modal');
-  plantModal.innerHTML = '';
-  plantModal.innerHTML = `
+    const plantModal = document.getElementById('plant_modal');
+    plantModal.innerHTML = '';
+    plantModal.innerHTML = `
   <div class="modal-box">
     <div class="bg-base-100 p-4 space-y-3 rounded-2xl">
       <img
@@ -126,6 +151,11 @@ const plantModalLoad = async (plantID) => {
     <button>close</button>
   </form>
   `;
+  } catch (err) {
+    console.error(err);
+  } finally {
+    hideSpinner();
+  }
 };
 
 // Checks if the plant was already added or not
